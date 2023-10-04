@@ -3,14 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { MainLayout } from './layout/MainLayout'
 import { AllPosts } from './components/AllPosts/AllPosts'
 import { TodaysPosts } from './components/TodaysPosts/TodaysPosts'
-
-// import { useQuery } from "@tanstack/react-query"
-// import { request } from 'graphql-request'
-// import { getAllPosts } from './queries/getAllPosts'
-// const { data, isLoading, error } = useQuery({
-//   queryKey: ['allPosts'],
-//   queryFn: async () => request(`https://swapi-graphql.netlify.app/.netlify/functions/index`, allPosts)
-// })
+import './globals.css'
 
 function App() {
 
