@@ -6,3 +6,8 @@
     box-sizing: border-box;
     font-family: 'Roboto';
 }
+
+body {
+    max-width: 900px;
+    margin: auto;
+}

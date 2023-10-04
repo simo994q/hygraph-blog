@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { MainLayout } from './layout/MainLayout'
 import { AllPosts } from './components/AllPosts/AllPosts'
 import { TodaysPosts } from './components/TodaysPosts/TodaysPosts'
+import { ManagePosts } from './components/ManagePosts/ManagePosts'
 import './globals.css'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' element={<MainLayout />}>
               <Route index element={<AllPosts />} />
               <Route path='/today' element={<TodaysPosts />} />
+              <Route path='/manage' element={<ManagePosts />} />
             </Route>
           </Routes>
         </BrowserRouter>
