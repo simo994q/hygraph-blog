@@ -1,10 +1,10 @@
 export const getAllPosts = `query BlogPosts {
-    blogPosts {
-      postDate
-      postTitle
-      publishedAt
-      postContent {
-        html
-      }
+  blogPosts {
+    postDate
+    postTitle
+    postContent {
+      text
     }
-  }`
+  }
+}
+`
