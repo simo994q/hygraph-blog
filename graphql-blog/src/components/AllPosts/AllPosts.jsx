@@ -9,7 +9,7 @@ export const AllPosts = () => {
 
     let token = import.meta.env.VITE_PUBLIC_URL_TOKEN
 
-    const {data, isLoading, error} = useQuery({
+    const { data, isLoading, error } = useQuery({
         queryKey: ['allPosts'],
         queryFn: async () => request(`https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/${token}/master`, getAllPosts)
     })
@@ -92,16 +92,6 @@ export const AllPosts = () => {
             <input type="text" placeholder="Search" onChange={(e) => setInputText(e.target.value)} />
 
             <div className={style.allPostsContainer}>
-                {/* {allPosts?.data?.blogPosts.map((item, index) => {
-                    return (
-                        <div key={index} className={style.postContainer}>
-                            <h3 className={style.postTitle}>{item.postTitle}</h3>
-                            <p className={style.postDate}>{item.postDateTime.slice(0, 10)} {item.postDateTime.slice(11, 16)}</p>
-                            <div className={style.postTextContainer} dangerouslySetInnerHTML={{ __html: dompurify.sanitize(item.postContent.html) }} />
-                        </div>
-                    )
-                })
-                } */}
                 {!searchData ? data?.blogPosts?.map((item, index) => {
                     return (
                         <div key={index} className={style.postContainer}>
