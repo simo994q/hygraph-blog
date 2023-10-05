@@ -21,31 +21,41 @@ export const AllPosts = () => {
     console.log(allPosts.data);
 
     const setSort = (sort) => {
+        console.log(sort);
         switch (sort) {
             case 'newest':
-                allPosts?.data?.blogPosts.sort((a, b) => {
-                    const dateA = new Date(a.postDate);
-                    const dateB = new Date(b.postDate);
+                allPosts.data.blogPosts.sort((a, b) => {
+                    const dateA = new Date(a.postDateTime);
+                    const dateB = new Date(b.postDateTime);
 
                     // Compare the dates in reverse order
                     if (dateA > dateB) return -1;
                     if (dateA < dateB) return 1;
                     return 0;
                 });
+                console.log(allPosts.data);
                 break;
             case 'oldest':
-                allPosts?.data?.blogPosts.sort((a, b) => {
-                    const dateA = new Date(a.postDate);
-                    const dateB = new Date(b.postDate);
+                allPosts.data.blogPosts.sort((a, b) => {
+                    const dateA = new Date(a.postDateTime);
+                    const dateB = new Date(b.postDateTime);
 
-                    // Compare the dates in reverse order
                     if (dateA < dateB) return -1;
                     if (dateA > dateB) return 1;
                     return 0;
                 });
+                console.log(allPosts.data);
                 break;
             case 'name':
+                allPosts.data.blogPosts.sort((a, b) => {
+                    const nameA = a.postTitle.toLowerCase();
+                    const nameB = b.postTitle.toLowerCase();
 
+                    if (nameA < nameB) return -1;
+                    if (nameA > nameB) return 1;
+                    return 0;
+                });
+                console.log(allPosts.data);
                 break;
         }
     }
@@ -69,8 +79,8 @@ export const AllPosts = () => {
                             <div className={style.postTextContainer} dangerouslySetInnerHTML={{ __html: dompurify.sanitize(item.postContent.html) }} />
                         </div>
                     )
+                })
                 }
-                )}
             </div>
         </>
     )

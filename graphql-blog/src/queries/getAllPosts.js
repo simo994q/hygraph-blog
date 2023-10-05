@@ -1,5 +1,5 @@
 export const getAllPosts = `query getAllPosts {
-  blogPosts {
+  blogPosts(orderBy: publishedAt_DESC) {
     postDate
     postDateTime
     postTitle
