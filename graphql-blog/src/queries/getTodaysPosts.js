@@ -10,8 +10,6 @@ if (new Date().getDate() < 10) {
 
 const fulldate = `${year}-${month}-${date}`
 
-console.log(fulldate);
-
 export const getTodaysPosts = `query getTodaysPosts {
     blogPosts(where: {postDate: "${fulldate}"}) {
       postDate

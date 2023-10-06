@@ -18,62 +18,20 @@ export const AllPosts = () => {
 
 
     if (error) console.log(error.message);
-
-    console.log(data);
-
-    const setSort = (sort) => {
-        console.log(sort);
-        switch (sort) {
-            case 'newest':
-                data.blogPosts.sort((a, b) => {
-                    const dateA = new Date(a.postDateTime);
-                    const dateB = new Date(b.postDateTime);
-
-                    // Compare the dates in reverse order
-                    if (dateA > dateB) return -1;
-                    if (dateA < dateB) return 1;
-                    return 0;
-                });
-                console.log(data);
-                break;
-            case 'oldest':
-                data.blogPosts.sort((a, b) => {
-                    const dateA = new Date(a.postDateTime);
-                    const dateB = new Date(b.postDateTime);
-
-                    if (dateA < dateB) return -1;
-                    if (dateA > dateB) return 1;
-                    return 0;
-                });
-                console.log(data);
-                break;
-            case 'name':
-                data.blogPosts.sort((a, b) => {
-                    const nameA = a.postTitle.toLowerCase();
-                    const nameB = b.postTitle.toLowerCase();
-
-                    if (nameA < nameB) return -1;
-                    if (nameA > nameB) return 1;
-                    return 0;
-                });
-                console.log(data);
-                break;
-        }
-    }
-
+    
     const [inputText, setInputText] = useState('')
     const [searchData, setSearchData] = useState()
 
     const search = () => {
         let clone = data.blogPosts.map((item) => item)
         let result = clone.filter((item) => item.postTitle.toLowerCase().includes(inputText.toLowerCase()))
-        console.log(result);
         setSearchData(result)
     }
 
     useEffect(() => {
         if (inputText == '') {
-            setSearchData()
+            let clone = data?.blogPosts.map((item) => item)
+            setSearchData(clone)
         } else {
             search()
         }
@@ -82,12 +40,6 @@ export const AllPosts = () => {
     return (
         <>
             <h2>All Posts</h2>
-
-            <select onChange={(e) => setSort(e.target.value)}>
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-                <option value="name">Name</option>
-            </select>
 
             <input type="text" placeholder="Search" onChange={(e) => setInputText(e.target.value)} />
 
