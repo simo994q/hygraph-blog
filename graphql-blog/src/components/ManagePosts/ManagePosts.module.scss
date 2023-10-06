@@ -1,0 +1,43 @@
+.allPostsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .postContainer {
+        background-color: #efefef;
+        padding: 12px;
+        border-radius: 8px;
+
+        .editOptions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .postTitle {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .postDate {
+            font-size: 18px;
+            margin-top: 4px;
+        }
+
+        .postTextContainer {
+
+
+            p,
+            blockquote,
+            ul li,
+            ol li {
+                font-size: 20px;
+            }
+
+
+        }
+
+        .postTextContainer>*:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

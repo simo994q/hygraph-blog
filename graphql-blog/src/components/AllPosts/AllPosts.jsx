@@ -16,11 +16,12 @@ export const AllPosts = () => {
 
     if (isLoading) console.log('Loading...');
 
-
     if (error) console.log(error.message);
     
     const [inputText, setInputText] = useState('')
     const [searchData, setSearchData] = useState()
+
+    console.log(data);
 
     const search = () => {
         let clone = data.blogPosts.map((item) => item)

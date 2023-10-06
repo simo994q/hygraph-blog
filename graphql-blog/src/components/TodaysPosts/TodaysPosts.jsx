@@ -8,22 +8,24 @@ export const TodaysPosts = () => {
 
     let token = import.meta.env.VITE_PUBLIC_URL_TOKEN
 
-    const todaysPosts = useQuery({
+    const { data, isLoading, error } = useQuery({
         queryKey: ['allPosts'],
         queryFn: async () => request(`https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/${token}/master`, getTodaysPosts)
     })
 
-    if (todaysPosts.isLoading) console.log('Loading...');
+    if (isLoading) console.log('Loading...');
 
-    if (todaysPosts.error) console.log(todaysPosts.error.message);
+    if (error) console.log(error.message);
 
-    console.log(todaysPosts.data);
+    console.log(data);
+
+    const randomArray = ['???']
 
     return (
         <>
             <h2>Todays Posts</h2>
             <div className={style.allPostsContainer}>
-                {todaysPosts?.data?.blogPosts.map((item, index) => {
+                {data?.blogPosts.length != 0 ? data?.blogPosts.map((item, index) => {
                     return (
                         <div key={index} className={style.postContainer}>
                             <h3 className={style.postTitle}>{item.postTitle}</h3>
@@ -32,7 +34,11 @@ export const TodaysPosts = () => {
                         </div>
                     )
                 }
-                )}
+                ) : randomArray.map((item, index) => {
+                    return (
+                        <p key={index}>Der er ikke lavet nogle posts i dag</p>
+                    )
+                })}
             </div>
 
         </>

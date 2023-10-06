@@ -15,6 +15,7 @@ export const getTodaysPosts = `query getTodaysPosts {
       postDate
       postDateTime
       postTitle
+      id
       postContent {
         html
       }

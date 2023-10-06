@@ -3,6 +3,7 @@ export const getAllPosts = `query getAllPosts {
     postDate
     postDateTime
     postTitle
+    id
     postContent {
       html
     }
